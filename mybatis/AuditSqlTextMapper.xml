@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.newdt.sqlaudit.product.mapper.AuditSqlTextMapper">
+  <sql id="columns">
+    id,
+    sql_digest_id sqlDigestId,
+    sql_text sqlText
+  </sql>
+
+  <delete id="delete">
+    /*NDTM*/
+    delete from ${mybatis.schema1}.audit_sql_text
+    where sql_digest_id = #{sqlDigestId,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="add" parameterType="cn.newdt.sqlaudit.product.domain.AuditSqlText">
+    /*NDTM*/
+    insert into ${mybatis.schema1}.audit_sql_text (sql_digest_id, sql_text)
+    values (#{sqlDigestId,jdbcType=VARCHAR}, #{sqlText,jdbcType=LONGVARCHAR})
+  </insert>
+
+  <insert id="addList" parameterType="cn.newdt.sqlaudit.product.domain.AuditSqlText" useGeneratedKeys="true"
+          keyProperty="id">
+    /*NDTM*/
+    insert into ${mybatis.schema1}.audit_sql_text (sql_digest_id, sql_text)
+    values
+    <foreach collection="sqls" item="sqlText" separator=",">
+      (#{sqlText.sqlDigestId,jdbcType=VARCHAR}, #{sqlText.sqlText,jdbcType=LONGVARCHAR})
+    </foreach>
+  </insert>
+
+  <select id="get" parameterType="java.lang.Long" resultType="cn.newdt.sqlaudit.product.domain.AuditSqlText">
+    /*NDTM*/
+    select
+    <include refid="columns" />
+    from ${mybatis.schema1}.audit_sql_text
+    where sql_digest_id = #{sqlDigestId,jdbcType=BIGINT}
+  </select>
+
+
+
+  <delete id="deleteBatch" parameterType="java.lang.Long">
+    /*NDTM*/
+    delete from ${mybatis.schema1}.audit_sql_text
+    where sql_digest_id IN
+    <foreach collection="ids" item="id" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </delete>
+
+</mapper>

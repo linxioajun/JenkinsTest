@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rwt.mybatis.dao.UserDao">
+
+    <select id="getUserList_choose" resultMap="resultMap_user" parameterType="com.yiibai.pojo.User">
+        SELECT *
+        FROM User u
+        <where>
+            <choose>
+                <when test="username !=null ">
+                    u.username LIKE CONCAT(CONCAT('%', #{username, jdbcType=VARCHAR}),'%')
+                </when >
+                <when test="sex != null and sex != '' ">
+                    AND u.sex = #{sex, jdbcType=INTEGER}
+                </when >
+                <when test="birthday != null ">
+                    AND u.birthday = #{birthday, jdbcType=DATE}
+                </when >
+                <otherwise>
+                    otherwise
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+
+
+</mapper>
+<xml version="1.0" encoding="UTF-8" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.rwt.mybatis.dao.UserDao">
+
+    <sql id="aaa">
+        aaa
+        
+    </sql>
+
+    <insert id="test1">
+         select *
+        from 
+        <include refid="aaa"></include>
+        <trim prefix="where" prefixOverrides="and |or">
+            and id = 1 and name = 'aa'
+        </trim>
+    </insert>
+</mapper>
+
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rwt.mybatis.dao.UserDao">
+
+    <select id="getUsersByListParam" resultType="com.xuyong.entity.User">
+        select * from user
+        <if test="orderFlag = true">
+            order by birth desc
+        </if>
+    </select>
+
+
+</mapper>
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rwt.mybatis.dao.UserDao">
+
+    <select id="getUsersByListParam" resultType="com.xuyong.entity.User">
+        select * from user
+        <foreach collection="list" item="item" open="where user_id in(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+
+</mapper>

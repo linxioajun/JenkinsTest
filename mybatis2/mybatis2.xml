@@ -8,6 +8,13 @@
             order by birth desc
         </if>
     </select>
+    <select id="getUsersByListParam" resultType="com.xuyong.entity.User">
+        /*17:02:39*/select * from user
+        <if test="orderFlag = true">
+            order by birth desc
+        </if>
+    </select>
+
 
 
 </mapper>

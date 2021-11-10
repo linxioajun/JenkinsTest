@@ -39,4 +39,4 @@ INSERT INTO `departments` VALUES ('d006', 'Quality Management');
 INSERT INTO `departments` VALUES ('d008', 'Research');
 INSERT INTO `departments` VALUES ('d007', 'Sales');
 INSERT INTO `departments` VALUES ('d007', '新增');
-/*新增SQL根目录16：03*/update cust1.companya set address = 'Japan' where id = 3;
+/*新增SQL根目录16：08*/update cust1.companya set address = 'Japan' where id = 3;

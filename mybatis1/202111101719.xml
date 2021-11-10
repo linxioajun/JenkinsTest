@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rwt.mybatis.dao.UserDao">
+
+    <select id="getUsersByListParam" resultType="com.xuyong.entity.User">
+        /*202111101719*/select * from user
+        <if test="orderFlag = true">
+            order by birth desc
+        </if>
+    </select>
+
+
+</mapper>

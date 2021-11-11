@@ -3,7 +3,7 @@
 <mapper namespace="com.rwt.mybatis.dao.UserDao">
 
     <select id="getUsersByListParam" resultType="com.xuyong.entity.User">
-        /*目录为mybatis1/mybatis1*/select * from user
+        /*目录为mybatis1/mybatis1haha*/select * from user
         <if test="orderFlag = true">
             order by birth desc
         </if>

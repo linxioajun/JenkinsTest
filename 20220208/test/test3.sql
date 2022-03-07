@@ -1,3 +1,3 @@
-/*success sql*/ select a,b,c from t where a > 1;
+/*success sql*/ drop table test;
 /*error sql*/ select * from t where ;
-/*success sql*/ select a,b,c from t where b > 1;
+/*success sql*/ select a,b,c from t ;

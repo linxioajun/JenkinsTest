@@ -32,4 +32,8 @@ FROM
 -- 注释为--
 SELECT Name FROM Persons13;
 SELECT Name FROM Persons14; -- 注释在末端
-/* 没有分号 */SELECT Name FROM Persons15
+/* 没有分号 */SELECT Name FROM Persons15;
+
+/*NDTM参数化失败*/ select * from stu where age < (select min(age) from stu2 where age < select min(age) from stu3);
+/*NDTM参数化失败后面的SQL*/SELECT Name FROM Persons;
+/*NDTM参数化失败后面的SQL*/INSERT INTO Persons VALUES ('Bill');

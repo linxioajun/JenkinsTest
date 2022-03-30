@@ -1,3 +1,4 @@
 select 1 * from dual;
-sef;
 select 2 * from dual;
+select ;
+select * from abc;

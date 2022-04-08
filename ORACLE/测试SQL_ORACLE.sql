@@ -1,4 +1,4 @@
-/*笛卡尔积*/select 1 from a,b,c,d;
+/*修改0408*/select 1 from a,b,c,d;
 /*等值连接*/select 1 from a,b,c,d where a.id = b.id and a.id = c.id and a.id = d.id;
 /*inner join*/select 1 from table1 a inner join table2 b on a.id = b.id inner join table3 c on a.age = c.age inner join table4 d on a.age = d.age;
 /*left join*/select 1 from table1 a left join table2 b on a.id = b.id left join table3 c on a.age = c.age left join table4 d on a.age = d.age;

@@ -291,3 +291,16 @@ INSERT INTO table1 select * FROM table2;
 
 
 /*增加一条SQL*/create table "111"( id int );
+/*inner 增加一条SQLjoin*/select 1 from table1 a inner join table2 b on a.id = b.id inner join table3 c on a.age = c.age;
+/*inne增加一条SQLr join*/select 1 from table1  a inner join table2  b on a.id = b.id inner join table3  c on a.age = c.age;
+/*left增加一条SQL join*/select 1 from table1 a left join table2 b on a.id = b.id left join table3 c on a.age = c.age;
+/*left增加一条SQL join*/select 1 from table1 a left outer join table2 b on a.id = b.id left join table3 c on a.age = c.age;
+/*rig增加一条SQLth join*/select 1 from table1 a right join table2 b on a.id = b.id right join table3 c on a.age = c.age;
+/*ri增加一条SQLgth join*/select 1 from table1 a right outer join table2 b on a.id = b.id right join table3 c on a.age = c.age;
+/*cr增加一条SQLoss join*/select 1 from table1 a cross join table2 b cross join table3 c;
+/*jo增加一条SQLin*/select 1 from table1 a join table2 b on a.id = b.id inner join table3 c on a.age = c.age;
+/*o增加一条SQLracle (+)语法*/select 1 from a,b,c where a.id(+)=b.id and a.age=b.age(+);
+/*等增加一条SQL值连接*/select 1 from table1,table2;
+/*等增加一条SQL值连接*/select 1 from table1 a,table2 b where a.id = b.id and a.name = b.name and a.id=1;
+/*等增加一条SQL值连接*/select 1 from table1 a,table2 b where a.id = b.id and a.name = b.name;
+/*等增加一条SQL值连接*/select 1 from table1 a,table2 b where a.id = b.id and a.name = b.name and a.id=1;

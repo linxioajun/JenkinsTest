@@ -44,7 +44,7 @@
 
 
   <delete id="deleteBatch" parameterType="java.lang.Long">
-    /*NDTM*/
+    /*修改语句*/
     delete from ${mybatis.schema1}.audit_sql_text
     where sql_digest_id IN
     <foreach collection="ids" item="id" open="(" close=")" separator=",">

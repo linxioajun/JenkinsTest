@@ -41,6 +41,9 @@
     SELECT `DB`,NAME `PROC_NAME` FROM `mysql`.`proc` WHERE `db` != ?
   </select>
 
+    <select id="get" parameterType="java.lang.Long" resultType="cn.newdt.sqlaudit.product.domain.AuditSqlText">
+    /*增加*/SELECT `DB`,NAME `PROC_NAME` FROM `mysql`.`proc` WHERE `db` != ?
+  </select>
 
 
 

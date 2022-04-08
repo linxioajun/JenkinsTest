@@ -288,3 +288,6 @@ delete from customers where exists (select 1 from tmp_cust_city b where b.custom
 update customers a set customer_type='01' where exists (select 1 from tmp_cust_city b where b.customer_id=a.customer_id);
 select * from stu order by name;
 INSERT INTO table1 select * FROM table2;
+
+
+/*增加一条SQL*/create table "111"( id int );

@@ -8,20 +8,20 @@
   </sql>
 
   <delete id="delete">
-    /*NDTM*/
+    /*ORACLE-NDTM*/
     delete from ${mybatis.schema1}.audit_sql_text
     where sql_digest_id = #{sqlDigestId,jdbcType=BIGINT}
   </delete>
 
   <insert id="add" parameterType="cn.newdt.sqlaudit.product.domain.AuditSqlText">
-    /*NDTM*/
+    /*ORACLE-NDTM*/
     insert into ${mybatis.schema1}.audit_sql_text (sql_digest_id, sql_text)
     values (#{sqlDigestId,jdbcType=VARCHAR}, #{sqlText,jdbcType=LONGVARCHAR})
   </insert>
 
   <insert id="addList" parameterType="cn.newdt.sqlaudit.product.domain.AuditSqlText" useGeneratedKeys="true"
           keyProperty="id">
-    /*NDTM*/
+    /*ORACLE-NDTM*/
     insert into ${mybatis.schema1}.audit_sql_text (sql_digest_id, sql_text)
     values
     <foreach collection="sqls" item="sqlText" separator=",">
@@ -30,7 +30,7 @@
   </insert>
 
   <select id="get" parameterType="java.lang.Long" resultType="cn.newdt.sqlaudit.product.domain.AuditSqlText">
-    /*NDTM*/
+    /*ORACLE-NDTM*/
     select
     <include refid="columns" />
     from ${mybatis.schema1}.audit_sql_text
@@ -44,7 +44,7 @@
 
 
   <delete id="deleteBatch" parameterType="java.lang.Long">
-    /*NDTM*/
+    /*ORACLE-NDTM*/
     delete from ${mybatis.schema1}.audit_sql_text
     where sql_digest_id IN
     <foreach collection="ids" item="id" open="(" close=")" separator=",">

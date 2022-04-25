@@ -1,4 +1,4 @@
-SELECT Name FROM Persons;
+/*变更*/SELECT Name FROM Persons;
 INSERT INTO Persons VALUES ('Bill');
 UPDATE Person SET Name = 'Fred' ; 
 DELETE FROM Person WHERE Name = 'Wilson' ;

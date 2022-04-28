@@ -38,7 +38,7 @@
   </select>
   
     <select id="get" parameterType="java.lang.Long" resultType="cn.newdt.sqlaudit.product.domain.AuditSqlText">
-    SELECT `DB`,NAME `PROC_NAME` FROM `mysql`.`proc` WHERE `db` != ?
+    SELECT "DB",NAME "PROC_NAME" FROM "mysql"."proc" WHERE "db" != ?
   </select>
 
 

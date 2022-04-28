@@ -1,53 +1,53 @@
 
 
---Áõ¶«¶«_begin_´ò°åÇ°-------------
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_begin_ï¿½ï¿½ï¿½Ç°-------------
 
--- ÌØÊâ´æ¿î²¹³ä±í
+-- ï¿½ï¿½ï¿½ï¿½ï¿½î²¹ï¿½ï¿½ï¿½
 -- begin execute immediate 'drop table kdpb_jltbcb'; exception when others then null; end;
---drop table kdpb_jltbcb;
+-- drop table kdpb_jltbcb;
 
 create table v7pro.kdpb_jltbcb (
-  farendma varchar2(4)default '' not null , --·¨ÈË´úÂë               
-  qiayleix varchar2(8), --Ç©Ô¼ÀàÐÍ               
-  zhanghao varchar2(40), --¸ºÕ®ÕËºÅ ¸ºÕ®ÕËºÅ               
-  glzhhaoo varchar2(40), --¹ØÁªÕËºÅ ¹ØÁªÕËºÅ               
-  qyueriqi varchar2(8), --Ç©Ô¼ÈÕÆÚ Ç©Ô¼ÈÕÆÚ               
-  jieyriqi varchar2(8), --½âÔ¼ÈÕÆÚ ½âÔ¼ÈÕÆÚ               
-  jinzriqi varchar2(8), --½ø×éÈÕÆÚ ½ø×éÈÕÆÚ               
-  tuizriqi varchar2(8), --ÍË×éÈÕÆÚ ÍË×éÈÕÆÚ               
-  qyueguiy varchar2(8), --Ç©Ô¼¹ñÔ± Ç©Ô¼¹ñÔ±               
-  jieyguiy varchar2(8), --½âÔ¼¹ñÔ± ½âÔ¼¹ñÔ±               
-  beizhuuu varchar2(200), --±¸×¢1               
-  weihguiy varchar2(8)default '' not null , --Î¬»¤¹ñÔ±               
-  weihjigo varchar2(12)default '' not null , --Î¬»¤»ú¹¹               
-  weihriqi varchar2(8)not null , --Î¬»¤ÈÕÆÚ               
-  weihshij varchar2(9)default '' , --Î¬»¤Ê±¼ä               
-  shijchuo number(16)default '0' not null , --Ê±¼ä´Á               
-  jiluztai varchar2(1)not null --¼ÇÂ¼×´Ì¬               
+  farendma varchar2(4)default '' not null , -- ï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½
+  qiayleix varchar2(8), -- Ç©Ô¼ï¿½ï¿½ï¿½ï¿½
+  zhanghao varchar2(40), -- ï¿½ï¿½Õ®ï¿½Ëºï¿½ ï¿½ï¿½Õ®ï¿½Ëºï¿½
+  glzhhaoo varchar2(40), -- ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
+  qyueriqi varchar2(8), -- Ç©Ô¼ï¿½ï¿½ï¿½ï¿½ Ç©Ô¼ï¿½ï¿½ï¿½ï¿½
+  jieyriqi varchar2(8), -- ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½
+  jinzriqi varchar2(8), -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  tuizriqi varchar2(8), -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  qyueguiy varchar2(8), -- Ç©Ô¼ï¿½ï¿½Ô± Ç©Ô¼ï¿½ï¿½Ô±
+  jieyguiy varchar2(8), -- ï¿½ï¿½Ô¼ï¿½ï¿½Ô± ï¿½ï¿½Ô¼ï¿½ï¿½Ô±
+  beizhuuu varchar2(200), -- ï¿½ï¿½×¢1
+  weihguiy varchar2(8)default '' not null , -- Î¬ï¿½ï¿½ï¿½ï¿½Ô±
+  weihjigo varchar2(12)default '' not null , -- Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  weihriqi varchar2(8)not null , -- Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  weihshij varchar2(9)default '' , -- Î¬ï¿½ï¿½Ê±ï¿½ï¿½
+  shijchuo number(16)default '0' not null , -- Ê±ï¿½ï¿½ï¿½
+  jiluztai varchar2(1)not null -- ï¿½ï¿½Â¼×´Ì¬
 );
 
 -- drop index kdpb_jltbcb_idx1;
 create unique index v7pro.kdpb_jltbcb_idx1 on v7pro.kdpb_jltbcb (zhanghao,farendma) ;	
 -- drop index kdpb_jltbcb_idx2;
 create index v7pro.kdpb_jltbcb_idx2 on v7pro.kdpb_jltbcb (glzhhaoo,farendma) ;	
-comment on table v7pro.kdpb_jltbcb is 'ÌØÊâ´æ¿î²¹³ä±í'; 
-comment on column v7pro.kdpb_jltbcb.farendma is '·¨ÈË´úÂë';
-comment on column v7pro.kdpb_jltbcb.qiayleix is 'Ç©Ô¼ÀàÐÍ(ZZCK0001-»ÝµÃÀû,ZZCK0002-Ó¯ÎïÁ÷,ZZCK0003-Ó¯µÃÀû,ZZCK0004-ÏíÀÖ´æ,ZZCK0005-Ð½Ð½Ó¯,ZZCK0006-´æÀûÓ¯,ZZCK0007-Ò»¼ÓÒ»ÕË»§,ZZCK0008-ÐÂ¼¯Àû´æ,ZZCK0009-ÃÎÏë´¢Ðî,ZZCK0010-ÖÇ»Û´æ)';
-comment on column v7pro.kdpb_jltbcb.zhanghao is '¸ºÕ®ÕËºÅ';
-comment on column v7pro.kdpb_jltbcb.glzhhaoo is '¹ØÁªÕËºÅ';
-comment on column v7pro.kdpb_jltbcb.qyueriqi is 'Ç©Ô¼ÈÕÆÚ';
-comment on column v7pro.kdpb_jltbcb.jieyriqi is '½âÔ¼ÈÕÆÚ';
-comment on column v7pro.kdpb_jltbcb.jinzriqi is '½ø×éÈÕÆÚ';
-comment on column v7pro.kdpb_jltbcb.tuizriqi is 'ÍË×éÈÕÆÚ';
-comment on column v7pro.kdpb_jltbcb.qyueguiy is 'Ç©Ô¼¹ñÔ±';
-comment on column v7pro.kdpb_jltbcb.jieyguiy is '½âÔ¼¹ñÔ±';
-comment on column v7pro.kdpb_jltbcb.beizhuuu is '±¸×¢1';
-comment on column v7pro.kdpb_jltbcb.weihguiy is 'Î¬»¤¹ñÔ±';
-comment on column v7pro.kdpb_jltbcb.weihjigo is 'Î¬»¤»ú¹¹';
-comment on column v7pro.kdpb_jltbcb.weihriqi is 'Î¬»¤ÈÕÆÚ';
-comment on column v7pro.kdpb_jltbcb.weihshij is 'Î¬»¤Ê±¼ä';
-comment on column v7pro.kdpb_jltbcb.shijchuo is 'Ê±¼ä´Á';
-comment on column v7pro.kdpb_jltbcb.jiluztai is '¼ÇÂ¼×´Ì¬(0-Õý³£,1-É¾³ý)';
+comment on table v7pro.kdpb_jltbcb is 'ï¿½ï¿½ï¿½ï¿½ï¿½î²¹ï¿½ï¿½ï¿½'; 
+comment on column v7pro.kdpb_jltbcb.farendma is 'ï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½';
+comment on column v7pro.kdpb_jltbcb.qiayleix is 'Ç©Ô¼ï¿½ï¿½ï¿½ï¿½(ZZCK0001-ï¿½Ýµï¿½ï¿½ï¿½,ZZCK0002-Ó¯ï¿½ï¿½ï¿½ï¿½,ZZCK0003-Ó¯ï¿½ï¿½ï¿½ï¿½,ZZCK0004-ï¿½ï¿½ï¿½Ö´ï¿½,ZZCK0005-Ð½Ð½Ó¯,ZZCK0006-ï¿½ï¿½ï¿½ï¿½Ó¯,ZZCK0007-Ò»ï¿½ï¿½Ò»ï¿½Ë»ï¿½,ZZCK0008-ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½,ZZCK0009-ï¿½ï¿½ï¿½ë´¢ï¿½ï¿½,ZZCK0010-ï¿½Ç»Û´ï¿½)';
+comment on column v7pro.kdpb_jltbcb.zhanghao is 'ï¿½ï¿½Õ®ï¿½Ëºï¿½';
+comment on column v7pro.kdpb_jltbcb.glzhhaoo is 'ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½';
+comment on column v7pro.kdpb_jltbcb.qyueriqi is 'Ç©Ô¼ï¿½ï¿½ï¿½ï¿½';
+comment on column v7pro.kdpb_jltbcb.jieyriqi is 'ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½';
+comment on column v7pro.kdpb_jltbcb.jinzriqi is 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+comment on column v7pro.kdpb_jltbcb.tuizriqi is 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+comment on column v7pro.kdpb_jltbcb.qyueguiy is 'Ç©Ô¼ï¿½ï¿½Ô±';
+comment on column v7pro.kdpb_jltbcb.jieyguiy is 'ï¿½ï¿½Ô¼ï¿½ï¿½Ô±';
+comment on column v7pro.kdpb_jltbcb.beizhuuu is 'ï¿½ï¿½×¢1';
+comment on column v7pro.kdpb_jltbcb.weihguiy is 'Î¬ï¿½ï¿½ï¿½ï¿½Ô±';
+comment on column v7pro.kdpb_jltbcb.weihjigo is 'Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+comment on column v7pro.kdpb_jltbcb.weihriqi is 'Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+comment on column v7pro.kdpb_jltbcb.weihshij is 'Î¬ï¿½ï¿½Ê±ï¿½ï¿½';
+comment on column v7pro.kdpb_jltbcb.shijchuo is 'Ê±ï¿½ï¿½ï¿½';
+comment on column v7pro.kdpb_jltbcb.jiluztai is 'ï¿½ï¿½Â¼×´Ì¬(0-ï¿½ï¿½ï¿½ï¿½,1-É¾ï¿½ï¿½)';
 
 
---Áõ¶«¶«_end_´ò°åÇ°-------------
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_end_ï¿½ï¿½ï¿½Ç°-------------

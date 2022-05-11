@@ -16,4 +16,7 @@ FROM
 -- 注释为--
 SELECT Name FROM Persons13;
 SELECT Name FROM Persons14; -- 注释在末端
+SELECT Name FROM /* 注释中有分号; */Persons16;
+-- 注释中有分号;
+SELECT Name FROM Persons17;
 /* 没有分号 */SELECT Name FROM Persons15

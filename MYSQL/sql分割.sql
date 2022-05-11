@@ -3,10 +3,10 @@ SELECT Name FROM Persons1;
 SELECT Name FROM Persons2 
 ; 
  SELECT Name FROM Persons3 ; SELECT Name FROM Persons4 ; SELECT Name FROM Persons5 ; 
-/* 注释在前端 */SELECT Name FROM Persons6; 
-SELECT Name FROM Persons7/* 注释在末端 */; 
+/* 注释;在前端 */SELECT Name FROM Persons6;
+SELECT Name FROM Persons7/* 注释;在末端 */;
 SELECT Name FROM Persons8;
-SELECT Name /* 注释在中间 */FROM Persons9; 
+SELECT Name /* 注释在;中间 */FROM Persons9;
 SELECT Name FROM Persons10; 
 SELECT Name FROM Persons11 ;
 SELECT
@@ -16,4 +16,11 @@ FROM
 -- 注释为--
 SELECT Name FROM Persons13;
 SELECT Name FROM Persons14; -- 注释在末端
+SELECT Name FROM /* 注释中有分号; */Persons16;
+-- 注释中有分号;
+SELECT Name FROM Persons17;
+#注释为#
+SELECT Name FROM Persons18;
+#注释中有分号;
+SELECT Name FROM Persons19;
 /* 没有分号 */SELECT Name FROM Persons15

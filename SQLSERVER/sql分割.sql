@@ -37,6 +37,9 @@ FROM
 -- 注释为--
 SELECT Name FROM Persons13;
 SELECT Name FROM Persons14; -- 注释在末端
+SELECT Name FROM /* 注释中有分号; */Persons16;
+-- 注释中有分号;
+SELECT Name FROM Persons17;
 /* 触发器 */CREATE TRIGGER production.trg_product_audit ON production.products AFTER
 INSERT AS BEGIN
 SET NOCOUNT ON;

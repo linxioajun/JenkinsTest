@@ -45,7 +45,7 @@
 
 
   <delete id="deleteBatch" parameterType="java.lang.Long">
-    /*ORACLE-mybatis*/
+    /*ORACLE-mybatis代码审核-审核记录对比-修改mybatis文件的原有的SQL语句*/
     delete from ${mybatis.schema1}.audit_sql_text
     where sql_digest_id IN
     <foreach collection="ids" item="id" open="(" close=")" separator=",">

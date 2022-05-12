@@ -14,7 +14,7 @@
   </delete>
 
   <insert id="add" parameterType="cn.newdt.sqlaudit.product.domain.AuditSqlText">
-    /*ORACLE-mybatis*/
+    /*ORACLE-m   ybatis*/
     insert into ${mybatis.schema1}.audit_sql_text (sql_digest_id, sql_text)
     values (#{sqlDigestId,jdbcType=VARCHAR}, #{sqlText,jdbcType=LONGVARCHAR})
   </insert>

@@ -16,13 +16,13 @@ SELECT
     Name 
 FROM
     Persons12; 
--- 注释为--
+-- 注释   为--
 SELECT Name FROM Persons13;
 SELECT Name FROM Persons14; -- 注释在末端
 SELECT Name FROM /* 注释中有分号; */Persons16;
 -- 注释中有分号;
 SELECT Name FROM Persons17;
-/* 多行注释带分号
+/* 多行注  释带分号
  多行注释带分号;
  多行注释带分号;
  多行注释带分号*/

@@ -6,7 +6,7 @@ SELECT Name FROM Persons1;
 SELECT Name FROM Persons2 
 ; 
  SELECT Name FROM Persons3 ; SELECT Name FROM Persons4 ; SELECT Name FROM Persons5 ; 
-/* 注释在前端 */SELECT Name FROM Persons6; 
+/* 注释123在前端 */SELECT Name FROM Persons6;
 SELECT Name FROM Persons7/* 注释在 末端 */;
 SELECT Name FROM Persons8;
 SELECT Name /* 注释在中间 */FROM Persons9; 

@@ -1,4 +1,4 @@
-/*笛卡尔积*/select 1 from a,b,c,d;
+/*代码审核-审核记录对比-修改SQL文件的原有的SQL语句*/select 1 from a,b,c,d;
 
 
 /*等值连接*/select 1 from a,b,c,d where a.id = b.id and a.id = c.id and a.id = d.id;

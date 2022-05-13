@@ -33,7 +33,7 @@
     /*ORACLE-mybatis*/
     select
     <include refid="columns" />
-    from ${mybatis.schema1}.*
+    from ${mybatis.schema1}.audit_sql_text
     where sql_digest_id = #{sqlDigestId,jdbcType=BIGINT}
   </select>
   

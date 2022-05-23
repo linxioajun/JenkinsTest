@@ -16,12 +16,12 @@ steps:
       #!/usr/bin/env bash
       # set -x
       ###################### replace ###############################################
-      declare TOKEN='752ec240-a509-443c-afe7-a13f88707977'
-      declare BASE_URL='http://222.128.31.230:48960/gateway/sql-audit-service-17/devops'
+      declare TOKEN='b91d1b08-da8c-4fdf-b193-8a1a1da854d6'
+      declare BASE_URL='http://222.128.31.230:48960/gateway/sql-audit-service/devops'
       declare dbProduct='ORACLE'
       declare projectId=0
-      declare SQL_FILE_LOCATION
-      declare MAPPER_LOCATION
+      declare SQL_FILE_LOCATION='ORACLE'
+      declare MAPPER_LOCATION='ORACLE'
       ###################### replace ###############################################
       
       parseJson() {

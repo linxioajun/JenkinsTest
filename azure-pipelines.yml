@@ -17,7 +17,7 @@ steps:
       # set -x
       ###################### replace ###############################################
       declare TOKEN='752ec240-a509-443c-afe7-a13f88707977'
-      declare BASE_URL='http://192.168.1.24:8960/gateway/sql-audit-service-17/devops'
+      declare BASE_URL='http://222.128.31.230:48960/gateway/sql-audit-service-17/devops'
       declare dbProduct='ORACLE'
       declare projectId=0
       declare SQL_FILE_LOCATION

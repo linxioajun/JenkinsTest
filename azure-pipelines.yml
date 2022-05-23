@@ -10,10 +10,58 @@ pool: 'shell'
 
 steps:
 
-
 - task: CmdLine@2
   inputs:
     script: |
-      echo Write your commands here
+      #!/usr/bin/env bash
+      # set -x
+      ###################### replace ###############################################
+      declare TOKEN='752ec240-a509-443c-afe7-a13f88707977'
+      declare BASE_URL='http://192.168.1.24:8960/gateway/sql-audit-service-17/devops'
+      declare dbProduct='ORACLE'
+      declare projectId=0
+      declare SQL_FILE_LOCATION
+      declare MAPPER_LOCATION
+      ###################### replace ###############################################
       
-      echo Hello world
+      parseJson() {
+        sed 's/,/\n/g'|grep "data"|sed 's/:/\n/g'|sed '1d'|sed 's/^ //'|sed -e 's/^"//' -e 's/"$//'
+      }
+      # 解决文件名带中文的问题
+      git config core.quotepath false
+      echo "get lastcommit"
+      LAST_COMMIT=`curl -s ${BASE_URL}/lastCommit/${TOKEN} | parseJson`
+      # if LAST_COMMIT is empty
+      [[ -z ${LAST_COMMIT} ]] && LAST_COMMIT=`git hash-object -t tree /dev/null`
+      echo "lastcommit:"${LAST_COMMIT}
+      # git diff 获取所有变化的文件列表
+      changedFileList=`git diff $LAST_COMMIT --name-status|awk '{print $2; print $3 }'|grep -v ^$|grep -iE '.sql$|.xml$'`
+      declare fileList
+      [[ -z ${SQL_FILE_LOCATION} && -z ${MAPPER_LOCATION} ]] && fileList="${changedFileList}"
+      [[ -n ${SQL_FILE_LOCATION} ]] && SQL_FILE_LOCATION=`echo $SQL_FILE_LOCATION|sed 's/,/|/g'` && fileList="${fileList}"$'\n'$(echo "${changedFileList}"|grep -iE '^('${SQL_FILE_LOCATION}')(/\w+)+(\.sql$)')
+      [[ -n ${MAPPER_LOCATION} ]] &&   MAPPER_LOCATION=`echo $MAPPER_LOCATION|sed 's/,/|/g'` && fileList="${fileList}"$'\n'$(echo "${changedFileList}"|grep -iE '^('${MAPPER_LOCATION}')(/\w+)+(\.xml$)')
+      # if fileList is empty
+      fileList=`echo "$fileList"|grep -v ^$`
+      [[ -z ${fileList} ]] && echo "no changed sql file, exit" && exit 0;
+      # update commit_id
+      LAST_COMMIT=`git rev-parse --short HEAD`
+      echo "LAST_COMMIT:"${LAST_COMMIT}
+      # addTask
+      fileNum=`echo "$fileList"|grep -v ^$|wc -l`
+      echo "changed sql and xml number:"${fileNum}
+      TASK_ID=`curl -s -X POST ${BASE_URL}/addTask --form commitId="${LAST_COMMIT}" --form token="${TOKEN}" | parseJson`
+      echo "CREATED TASK_ID:"${TASK_ID}
+      echo "$fileList"|while read line;
+      do
+        if [[ -r ${line} ]];
+        then
+          echo "uploading file:"${line}
+          curl -f -s -X POST ${BASE_URL}/auditFile -F "file=@${line}" -F filename="${line}" -F dbProduct="${dbProduct}" -F projectId=${projectId} -F taskId=${TASK_ID} -F commitId="${LAST_COMMIT}" -F token="${TOKEN}"
+          [[ $? -eq 0 ]] && echo "uploading file:"${line} "success" || echo "uploading file:"${line} "fail"
+        else
+          echo "file:"${line} "not exist"
+          curl -s -X POST ${BASE_URL}/auditFile -F filename="${line}" -F dbProduct="${dbProduct}" -F projectId=${projectId} -F taskId=${TASK_ID} -F commitId="${LAST_COMMIT}" -F token="${TOKEN}"
+        fi
+      done
+      curl -s -X POST ${BASE_URL}/updateJob --form token="${TOKEN}" --form commitId="${LAST_COMMIT}" --form taskId="${TASK_ID}"
+      echo "updateJob finished"
